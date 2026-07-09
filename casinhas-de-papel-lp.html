@@ -461,6 +461,72 @@
   .plan li::before{ content:"✓"; color:var(--sage-dark); font-weight:800; flex:none; }
   .plan .btn{ width:100%; text-align:center; font-size:16px; padding:14px; }
 
+  /* Pricing Card custom overrides */
+  .plan li.crossed-out {
+    text-decoration: line-through;
+    opacity: 0.55;
+  }
+  .plan li.crossed-out::before {
+    content: "✗";
+    color: var(--coral-dark);
+  }
+  
+  .plan .btn-outline {
+    background: #fff;
+    color: var(--coral-dark);
+    border: 2px solid var(--coral);
+    box-shadow: 0 4px 0 var(--coral);
+    transition: transform .08s ease, background .2s ease;
+  }
+  .plan .btn-outline:hover {
+    background: var(--paper-2);
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 var(--coral);
+  }
+  .plan .btn-outline:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 var(--coral);
+  }
+
+  .plan .btn-premium {
+    background: #4EBA70;
+    color: #fff;
+    box-shadow: 0 6px 0 #399656;
+    transition: transform .08s ease;
+  }
+  .plan .btn-premium:hover {
+    transform: translateY(2px);
+    box-shadow: 0 4px 0 #399656;
+  }
+  .plan .btn-premium:active {
+    transform: translateY(6px);
+    box-shadow: 0 0 0 #399656;
+  }
+
+  .plan-sub {
+    font-size: 13.5px;
+    color: #7A6B7D;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .price-detail {
+    font-size: 12px;
+    color: #7A6B7D;
+    margin-top: -12px;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+  .plan-footer-guarantee {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #6B5C6E;
+    font-weight: 700;
+    margin-top: 14px;
+  }
+
   /* BONUS */
   .bonus{ background:var(--paper-2); }
   .bonus-grid{
@@ -681,6 +747,124 @@
     .offer-grid{ grid-template-columns:1fr; }
     .guarantee{ flex-direction:column; text-align:center; padding:30px 22px; }
     .stats-row{ gap:32px; }
+  }
+
+  /* Premium Bonus Section */
+  .premium-bonus {
+    background: #FFF5F6;
+    padding: 64px 0;
+    border-top: 1.5px dashed var(--line);
+    border-bottom: 1.5px dashed var(--line);
+  }
+  .bonus-tag-wrapper {
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  .bonus-exclusive-tag {
+    background: var(--coral);
+    color: #fff;
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 800;
+    font-size: 12px;
+    padding: 6px 16px;
+    border-radius: 999px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .bonus-exclusive-title {
+    text-align: center;
+    font-size: clamp(24px, 3.4vw, 36px);
+    font-family: 'Baloo 2', sans-serif;
+    color: var(--ink);
+    margin-bottom: 40px;
+    line-height: 1.25;
+  }
+  .bonus-exclusive-title .hl {
+    color: var(--coral-dark);
+  }
+  .bonus-premium-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .bonus-premium-card {
+    background: #fff;
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+    border: 1.5px dashed var(--line);
+    width: calc(33.333% - 16px);
+    min-width: 280px;
+    max-width: 310px;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s;
+  }
+  .bonus-premium-card:hover {
+    transform: translateY(-4px);
+  }
+  .bonus-premium-img-wrapper {
+    width: 100%;
+    aspect-ratio: 1.15;
+    overflow: hidden;
+    border-bottom: 1.5px dashed var(--line);
+  }
+  .bonus-premium-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .bonus-premium-info {
+    padding: 20px 16px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .bonus-premium-info h4 {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 15.5px;
+    color: var(--ink);
+    font-weight: 700;
+    line-height: 1.35;
+  }
+  .bonus-premium-info .old-price {
+    font-size: 12px;
+    color: #8A7B8D;
+    text-decoration: line-through;
+    margin-bottom: 2px;
+  }
+  .bonus-premium-info .free-tag {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 14.5px;
+    color: var(--sage-dark);
+    font-weight: 800;
+  }
+  .bonus-premium-summary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #EEF8F1;
+    border: 1.5px dashed #4EBA70;
+    color: var(--ink);
+    font-size: 13.5px;
+    font-weight: 700;
+    padding: 10px 24px;
+    border-radius: 999px;
+    margin: 40px auto 0;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .bonus-premium-summary span.highlight {
+    color: #2D924C;
+    font-weight: 800;
+    margin-left: 4px;
   }
 
   /* Sales Notification Toast */
@@ -944,6 +1128,93 @@
   </div>
 </section>
 
+<div class="wrap"><div class="cutline"></div></div>
+
+<!-- PREMIUM BONUS SECTION -->
+<section class="premium-bonus">
+  <div class="wrap">
+    <div class="bonus-tag-wrapper">
+      <span class="bonus-exclusive-tag">🎁 BÔNUS EXCLUSIVOS</span>
+    </div>
+    <h2 class="bonus-exclusive-title">Comprando o Premium hoje você ganha <span class="hl">5 bônus grátis</span></h2>
+    
+    <div class="bonus-premium-container">
+      <div class="bonus-premium-card">
+        <div class="bonus-premium-img-wrapper">
+          <img src="assets/bonus1.jpg" alt="Bônus 1: Boneca Sereia">
+        </div>
+        <div class="bonus-premium-info">
+          <h4>Bônus 1: Boneca Sereia</h4>
+          <div>
+            <div class="old-price">De R$ 17</div>
+            <div class="free-tag">Hoje: GRÁTIS</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bonus-premium-card">
+        <div class="bonus-premium-img-wrapper">
+          <img src="assets/bonus2.jpg" alt="Bônus 2: Boneca Professora">
+        </div>
+        <div class="bonus-premium-info">
+          <h4>Bônus 2: Boneca Professora</h4>
+          <div>
+            <div class="old-price">De R$ 15</div>
+            <div class="free-tag">Hoje: GRÁTIS</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bonus-premium-card">
+        <div class="bonus-premium-img-wrapper">
+          <img src="assets/bonus3.jpg" alt="Bônus 3: Kit Maquiagem + Guarda-roupa">
+        </div>
+        <div class="bonus-premium-info">
+          <h4>Bônus 3: Kit Maquiagem + Guarda-roupa</h4>
+          <div>
+            <div class="old-price">De R$ 15</div>
+            <div class="free-tag">Hoje: GRÁTIS</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bonus-premium-card">
+        <div class="bonus-premium-img-wrapper">
+          <img src="assets/bonus4.jpg" alt="Bônus 4: Kit Baby-Care">
+        </div>
+        <div class="bonus-premium-info">
+          <h4>Bônus 4: Kit Baby-Care</h4>
+          <div>
+            <div class="old-price">De R$ 17</div>
+            <div class="free-tag">Hoje: GRÁTIS</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bonus-premium-card">
+        <div class="bonus-premium-img-wrapper">
+          <img src="assets/bonus5.jpg" alt="Bônus 5: Kit Trailer Charme">
+        </div>
+        <div class="bonus-premium-info">
+          <h4>Bônus 5: Kit Trailer Charme</h4>
+          <div>
+            <div class="old-price">De R$ 20</div>
+            <div class="free-tag">Hoje: GRÁTIS</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div style="text-align: center; width: 100%;">
+      <div class="bonus-premium-summary">
+        Total dos bônus: <span style="text-decoration: line-through; opacity: 0.6; margin: 0 4px;">R$ 84</span> • Hoje você leva tudo isso <span class="highlight">GRÁTIS no premium</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="cutline"></div></div>
+
 <!-- OFFER -->
 <section id="oferta" class="offer">
   <div class="wrap">
@@ -951,30 +1222,52 @@
     <p class="section-sub">Oferta de férias por tempo limitado — o preço volta ao normal quando o contador zerar.</p>
     <div class="offer-grid">
       <div class="plan">
-        <h3>Kit Básico</h3>
-        <div class="price-old">De R$ 47,00</div>
-        <div class="price">R$ 14,90</div>
+        <h3>Pacote Básico</h3>
+        <div class="plan-sub">Pra começar a brincadeira</div>
+        <div class="price" style="margin-bottom: 4px;">R$ 10</div>
+        <div class="price-detail">à vista</div>
         <ul>
-          <li>1 casinha de papel completa</li>
-          <li>Móveis básicos (5 peças)</li>
-          <li>1 família de bonequinhas</li>
-          <li>Manual de montagem em PDF</li>
+          <li>3 Casinhas de Boneca Interativa</li>
+          <li>PDF pronto para imprimir</li>
+          <li class="crossed-out">12 Casinhas de Boneca Interativa</li>
+          <li class="crossed-out">Todos os acessórios</li>
+          <li class="crossed-out">Kit Boneca Sereia</li>
+          <li class="crossed-out">Kit Boneca Professora</li>
+          <li class="crossed-out">Kit Maquiagem + Guarda-roupa</li>
+          <li class="crossed-out">Kit Baby-Care</li>
+          <li class="crossed-out">Kit Trailer Charme</li>
+          <li class="crossed-out">Guia de montagem</li>
+          <li class="crossed-out">Atualizações semanais</li>
+          <li class="crossed-out">Garantia de 7 dias</li>
+          <li class="crossed-out">100% de Diversão Garantida</li>
         </ul>
-        <a href="#checkout" class="btn">Quero o Básico</a>
+        <a href="#checkout" class="btn btn-outline">Quero o pacote básico</a>
       </div>
       <div class="plan vip">
-        <div class="tag">MAIS ESCOLHIDO</div>
-        <h3>Kit VIP</h3>
-        <div class="price-old">De R$ 109,50</div>
-        <div class="price">R$ 24,90</div>
+        <div class="tag">⚡ MAIS ESCOLHIDO</div>
+        <h3>Pacote Premium</h3>
+        <div class="plan-sub">A experiência completa</div>
+        <div class="price-old" style="margin-bottom: 2px;">De R$ 97</div>
+        <div class="price" style="margin-bottom: 4px;">R$ 27</div>
+        <div class="price-detail">à vista</div>
         <ul>
-          <li>3 casinhas temáticas (praia, cidade, fazenda)</li>
-          <li>Móveis completos (18 peças)</li>
-          <li>3 famílias de bonequinhas + roupas extras</li>
-          <li>Cenários de fundo para brincar</li>
-          <li>Atualizações futuras inclusas de graça</li>
+          <li>Tudo do pacote Básico</li>
+          <li>12 Casinhas de Boneca Interativa</li>
+          <li>Todos os acessórios</li>
+          <li>Kit Boneca Sereia</li>
+          <li>Kit Boneca Professora</li>
+          <li>Kit Maquiagem + Guarda-roupa</li>
+          <li>Kit Baby-Care</li>
+          <li>Kit Trailer Charme</li>
+          <li>Guia de montagem</li>
+          <li>Atualizações semanais</li>
+          <li>Garantia de 7 dias</li>
+          <li>100% de Diversão Garantida</li>
         </ul>
-        <a href="#checkout" class="btn">Quero o VIP</a>
+        <a href="#checkout" class="btn btn-premium">QUERO O PACOTE PREMIUM →</a>
+        <div class="plan-footer-guarantee">
+          <span>🔒</span> 7 dias de garantia
+        </div>
       </div>
     </div>
   </div>
