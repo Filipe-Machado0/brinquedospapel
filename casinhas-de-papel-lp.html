@@ -548,6 +548,82 @@
     .guarantee{ flex-direction:column; text-align:center; padding:30px 22px; }
     .stats-row{ gap:32px; }
   }
+
+  /* Sales Notification Toast */
+  .sales-toast {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    background: #fff;
+    border-radius: 18px;
+    padding: 14px 40px 14px 16px;
+    box-shadow: 0 10px 35px rgba(59,42,62,0.15);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    z-index: 1000;
+    max-width: 340px;
+    width: calc(100% - 48px);
+    border: 1px solid rgba(59,42,62,0.06);
+    transform: translateX(-120%) scale(0.9);
+    opacity: 0;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.15), opacity 0.4s ease;
+  }
+  .sales-toast.show {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+  .sales-toast-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255,111,129,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--coral-dark);
+    flex-shrink: 0;
+  }
+  .sales-toast-content {
+    font-size: 13.5px;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .sales-toast-content strong {
+    font-weight: 700;
+  }
+  .sales-toast-product {
+    color: var(--coral-dark);
+    font-weight: 800;
+  }
+  .sales-toast-close {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #A094A2;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+  }
+  .sales-toast-close:hover {
+    color: var(--ink);
+  }
+  @media (max-width: 600px) {
+    .sales-toast {
+      bottom: 16px;
+      left: 16px;
+      width: calc(100% - 32px);
+      max-width: none;
+    }
+  }
 </style>
 </head>
 <body>
@@ -843,6 +919,51 @@
   document.getElementById('popupCta').addEventListener('click', ()=>{
     document.getElementById('exitOverlay').classList.remove('show');
   });
+
+  // Sales Notifications
+  const salesNames = [
+    "Tatiane O.", "Renata S.", "Camila F.", "Mariana R.", "Patrícia M.", 
+    "Beatriz P.", "Juliana C.", "Fernanda G.", "Aline M.", "Vanessa R.",
+    "Sandra T.", "Débora L.", "Amanda N.", "Cristiane S.", "Letícia B."
+  ];
+
+  let isVipNext = false;
+
+  function showSalesNotification() {
+    let toast = document.getElementById('salesToast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'salesToast';
+      toast.className = 'sales-toast';
+      document.body.appendChild(toast);
+    }
+
+    const randomName = salesNames[Math.floor(Math.random() * salesNames.length)];
+    const product = isVipNext ? "Pacote VIP" : "Pacote Básico";
+    isVipNext = !isVipNext;
+
+    toast.innerHTML = `
+      <div class="sales-toast-icon">🛍</div>
+      <div class="sales-toast-content">
+        <strong>${randomName}</strong> acabou de adquirir o <span class="sales-toast-product">${product}</span>
+      </div>
+      <button class="sales-toast-close" id="salesToastClose">&times;</button>
+    `;
+
+    toast.classList.add('show');
+
+    document.getElementById('salesToastClose').addEventListener('click', () => {
+      toast.classList.remove('show');
+    });
+
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 6000);
+  }
+
+  // Initial toast after 6s, then repeat every 25s
+  setTimeout(showSalesNotification, 6000);
+  setInterval(showSalesNotification, 25000);
 </script>
 
 </body>
