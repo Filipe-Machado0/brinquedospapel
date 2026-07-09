@@ -388,6 +388,31 @@
   .bubble + .bubble{ margin-top:8px; border-radius:12px; }
   .wa-time{ font-size:11px; color:#8AA890; text-align:right; margin-top:4px;}
 
+  /* Instagram proof prints */
+  .instagram-proof-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-bottom: 40px;
+  }
+  .proof-card-img {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    border: 1.5px dashed var(--line);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .proof-card-img:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(59, 42, 62, 0.18);
+  }
+  .proof-card-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
   .stats-row{
     display:flex;
     justify-content:center;
@@ -564,7 +589,7 @@
   @media (max-width: 860px){
     .hero-grid, .solution-grid{ grid-template-columns:1fr; }
     .hero-visual{ max-width:380px; margin:0 auto; }
-    .problem-grid, .proof-grid, .bonus-grid{ grid-template-columns:1fr; }
+    .problem-grid, .proof-grid, .instagram-proof-grid, .bonus-grid{ grid-template-columns:1fr; }
     .offer-grid{ grid-template-columns:1fr; }
     .guarantee{ flex-direction:column; text-align:center; padding:30px 22px; }
     .stats-row{ gap:32px; }
@@ -762,6 +787,20 @@
         <div class="wa-time">18:47 ✓✓</div>
       </div>
     </div>
+
+    <h3 style="text-align:center; font-size:22px; margin: 48px 0 24px; font-family:'Baloo 2', sans-serif;">Também fazem sucesso no Direct do Instagram:</h3>
+    <div class="instagram-proof-grid">
+      <div class="proof-card-img">
+        <img src="assets/depoimento1.png" alt="Depoimento de Marina Santana no Instagram">
+      </div>
+      <div class="proof-card-img">
+        <img src="assets/depoimento2.png" alt="Depoimento de Ana Paula no Instagram">
+      </div>
+      <div class="proof-card-img">
+        <img src="assets/depoimento3.png" alt="Depoimento de Cris Ferreira no Instagram">
+      </div>
+    </div>
+
     <div class="stats-row">
       <div class="stat"><div class="num">+1.200</div><div class="lbl">famílias atendidas</div></div>
       <div class="stat"><div class="num">4.9★</div><div class="lbl">avaliação média</div></div>
