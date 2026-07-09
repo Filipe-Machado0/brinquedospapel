@@ -105,6 +105,15 @@
   .tab-wrapper {
     display: flex;
     gap: 8px;
+    justify-content: center;
+  }
+  @media(max-width: 420px) {
+    .tab-wrapper { gap: 4px; }
+    .tab-btn {
+      padding: 10px 10px;
+      font-size: 13.5px;
+      gap: 6px;
+    }
   }
   .tab-btn {
     display: flex;
