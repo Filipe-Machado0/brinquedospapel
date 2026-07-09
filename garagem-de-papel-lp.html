@@ -236,6 +236,73 @@
   .popup p{ font-size:14.5px; color:#4A5560; margin-bottom:20px; }
   .popup .discount{ font-family:'Baloo 2'; font-size:32px; color:var(--blue-dark); font-weight:800; margin-bottom:16px; }
 
+  /* tab switcher */
+  .tab-container {
+    background: var(--paper-2);
+    border-bottom: 1.5px dashed var(--line);
+    padding: 10px 0 0 0;
+    position: relative;
+    z-index: 10;
+  }
+  .tab-wrapper {
+    display: flex;
+    gap: 8px;
+  }
+  .tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #5A646E;
+    background: rgba(36,48,59,0.05);
+    border: 1.5px dashed var(--line);
+    border-bottom: none;
+    border-radius: 12px 12px 0 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: -1.5px;
+    position: relative;
+  }
+  .tab-btn:hover {
+    color: var(--ink);
+    background: #fff;
+    transform: translateY(-2px);
+  }
+  .tab-btn.active-boys {
+    background: var(--paper);
+    color: var(--blue-dark);
+    border-style: solid;
+    border-color: var(--blue-dark) var(--blue-dark) var(--paper);
+    border-width: 2px 2px 2px;
+    z-index: 2;
+    transform: translateY(0);
+  }
+  .tab-btn.active-boys::before {
+    content: "";
+    position: absolute;
+    top: -2px; left: -2px; right: -2px;
+    height: 4px;
+    background: var(--blue);
+    border-radius: 12px 12px 0 0;
+  }
+  .tab-badge {
+    font-size: 11px;
+    padding: 1px 6px;
+    border-radius: 999px;
+    font-weight: 800;
+  }
+  .tab-badge.girls {
+    background: rgba(255,111,129,0.15);
+    color: #FF6F81;
+  }
+  .tab-badge.boys {
+    background: rgba(46,125,209,0.15);
+    color: var(--blue-dark);
+  }
+
   @media (max-width: 860px){
     .hero-grid, .solution-grid{ grid-template-columns:1fr; }
     .hero-visual{ order:-1; max-width:380px; margin:0 auto; }
@@ -250,6 +317,17 @@
 
 <div class="topbar">
   🎋 Oferta de Férias Escolares — termina em <span class="count" id="countdown">--:--:--</span>
+</div>
+
+<div class="tab-container">
+  <div class="wrap tab-wrapper">
+    <a href="casinhas-de-papel-lp.html" class="tab-btn">
+      <span>🏠</span> Casinhas de Papel <span class="tab-badge girls">Meninas</span>
+    </a>
+    <a href="garagem-de-papel-lp.html" class="tab-btn active-boys">
+      <span>🚗</span> Garagem de Papel <span class="tab-badge boys">Meninos</span>
+    </a>
+  </div>
 </div>
 
 <section class="hero">
