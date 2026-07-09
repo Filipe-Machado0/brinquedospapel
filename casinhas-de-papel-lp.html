@@ -1568,6 +1568,27 @@
   }
   document.getElementById('coClose').addEventListener('click', closeCheckout);
   document.getElementById('coOverlay').addEventListener('click', function(e){ if(e.target===document.getElementById('coOverlay')) closeCheckout(); });
+  // --- FORCE VIDEO AUTOPLAY ---
+  document.addEventListener("DOMContentLoaded", function() {
+    var video = document.querySelector('.house-video');
+    if (video) {
+      var playAttempt = setInterval(function() {
+        video.play().then(function() {
+          clearInterval(playAttempt);
+        }).catch(function(err) {
+          console.log("Autoplay block:", err);
+        });
+      }, 1500);
+
+      // Fallback: play on any click
+      document.body.addEventListener('click', function() {
+        video.play();
+      }, { once: true });
+      document.body.addEventListener('touchstart', function() {
+        video.play();
+      }, { once: true });
+    }
+  });
 </script>
 
 </body>
