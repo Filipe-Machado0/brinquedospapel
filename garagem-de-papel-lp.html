@@ -301,6 +301,94 @@
     color: var(--blue-dark);
   }
 
+  /* Carousel Section */
+  .carousel-section {
+    padding: 56px 0;
+    background: var(--paper-2);
+    overflow: hidden;
+  }
+  .carousel-title {
+    text-align: center;
+    font-size: clamp(20px, 3vw, 26px);
+    color: var(--blue-dark);
+    font-family: 'Baloo 2', sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .carousel-container {
+    position: relative;
+    width: 100%;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 10px 4px 24px;
+    scrollbar-width: none;
+  }
+  .carousel-track::-webkit-scrollbar {
+    display: none;
+  }
+  .carousel-item {
+    flex: 0 0 280px;
+    scroll-snap-align: start;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    border: 1.5px dashed var(--line);
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+  @media (min-width: 768px) {
+    .carousel-item {
+      flex: 0 0 320px;
+    }
+  }
+  .carousel-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .carousel-controls {
+    display: none;
+  }
+  @media (min-width: 1024px) {
+    .carousel-controls {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .carousel-arrow {
+      background: #fff;
+      border: 1.5px dashed var(--line);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 16px;
+      color: var(--ink);
+      transition: all 0.2s;
+      box-shadow: var(--shadow);
+    }
+    .carousel-arrow:hover {
+      background: var(--paper-2);
+      transform: scale(1.1);
+      color: var(--blue-dark);
+      border-style: solid;
+      border-color: var(--blue-dark);
+    }
+  }
+
   @media (max-width: 860px){
     .hero-grid, .solution-grid{ grid-template-columns:1fr; }
     .hero-visual{ max-width:380px; margin:0 auto; }
@@ -461,6 +549,54 @@
   </div>
 </section>
 
+<div class="wrap"><div class="cutline"></div></div>
+
+<!-- CAROUSEL SECTION -->
+<section class="carousel-section">
+  <div class="wrap">
+    <h2 class="carousel-title">VEJA O MUNDO MÁGICO QUE VOCÊ VAI ENTREGAR NAS MÃOS DELE HOJE:</h2>
+    
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <div class="carousel-item">
+          <img src="assets/garagem1.jpg" alt="Kit Garagem de Papel 1">
+        </div>
+        <div class="carousel-item">
+          <img src="assets/garagem2.jpg" alt="Kit Garagem de Papel 2">
+        </div>
+        <div class="carousel-item">
+          <img src="assets/garagem3.jpg" alt="Kit Garagem de Papel 3">
+        </div>
+        <div class="carousel-item">
+          <img src="assets/garagem4.jpg" alt="Kit Garagem de Papel 4">
+        </div>
+        <div class="carousel-item">
+          <img src="assets/garagem5.jpg" alt="Kit Garagem de Papel 5">
+        </div>
+        <div class="carousel-item">
+          <img src="assets/garagem6.jpg" alt="Kit Garagem de Papel 6">
+        </div>
+        <div class="carousel-item">
+          <img src="assets/garagem7.jpg" alt="Kit Garagem de Papel 7">
+        </div>
+        <div class="carousel-item">
+          <img src="assets/garagem8.jpg" alt="Kit Garagem de Papel 8">
+        </div>
+        <div class="carousel-item">
+          <img src="assets/garagem9.jpg" alt="Kit Garagem de Papel 9">
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-arrow prev" id="carouselPrev">&#10094;</button>
+        <button class="carousel-arrow next" id="carouselNext">&#10095;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="cutline"></div></div>
+
+<!-- SOLUTION -->
 <section class="solution">
   <div class="wrap solution-grid">
     <div>
@@ -719,6 +855,20 @@
   // Initial toast after 6s, then repeat every 25s
   setTimeout(showSalesNotification, 6000);
   setInterval(showSalesNotification, 25000);
+
+  // Carousel Navigation
+  const track = document.querySelector('.carousel-track');
+  const prevBtn = document.getElementById('carouselPrev');
+  const nextBtn = document.getElementById('carouselNext');
+
+  if (track && prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', () => {
+      track.scrollBy({ left: -336, behavior: 'smooth' });
+    });
+    nextBtn.addEventListener('click', () => {
+      track.scrollBy({ left: 336, behavior: 'smooth' });
+    });
+  }
 </script>
 
 </body>
