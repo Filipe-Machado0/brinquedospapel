@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kit Casinhas de Papel â€” Brincadeira que sai da tela</title>
+<title>Kit Casinhas de Papel — Brincadeira que sai da tela</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -58,7 +58,7 @@
     margin: 0;
   }
   .cutline::before, .cutline::after{
-    content:"âœ‚";
+    content:"✂";
     position:absolute;
     top:50%; transform:translateY(-50%) scaleX(-1);
     font-size:14px;
@@ -458,7 +458,7 @@
   .plan .price small{ font-size:15px; font-weight:600; color:#7A6B7D; }
   .plan ul{ margin-bottom:20px; }
   .plan li{ display:flex; gap:8px; font-size:14.5px; margin-bottom:9px; }
-  .plan li::before{ content:"âœ“"; color:var(--sage-dark); font-weight:800; flex:none; }
+  .plan li::before{ content:"✓"; color:var(--sage-dark); font-weight:800; flex:none; }
   .plan .btn{ width:100%; text-align:center; font-size:16px; padding:14px; }
 
   /* Pricing Card custom overrides */
@@ -467,7 +467,7 @@
     opacity: 0.55;
   }
   .plan li.crossed-out::before {
-    content: "âœ—";
+    content: "✗";
     color: var(--coral-dark);
   }
   
@@ -935,322 +935,47 @@
     }
   }
 
-  /* ===================== CHECKOUT MODAL CSS ===================== */
-  .co-overlay {
-    display: none;
-    position: fixed; inset: 0;
-    background: rgba(30,15,35,0.72);
-    backdrop-filter: blur(6px);
-    z-index: 9999;
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
-  }
-  .co-overlay.co-show {
-    display: flex;
-  }
-  .co-modal {
-    background: var(--paper);
-    border-radius: 20px;
-    width: 100%;
-    max-width: 500px;
-    max-height: 92vh;
-    overflow-y: auto;
-    box-shadow: 0 24px 64px rgba(59,42,62,0.28);
-    position: relative;
-    animation: coSlideIn .32s cubic-bezier(.22,1,.36,1);
-  }
-  @keyframes coSlideIn {
-    from { transform: translateY(40px) scale(.97); opacity: 0; }
-    to   { transform: none; opacity: 1; }
-  }
-  .co-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px 20px 14px;
-    border-bottom: 1px solid var(--line);
-    background: linear-gradient(135deg, var(--coral) 0%, var(--coral-dark) 100%);
-    border-radius: 20px 20px 0 0;
-  }
-  .co-header-left { display: flex; flex-direction: column; gap: 2px; }
-  .co-logo { font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 1.1rem; color: #fff; }
-  .co-secure { font-size: 12px; color: rgba(255,255,255,.88); font-weight: 600; }
-  .co-close {
-    background: rgba(255,255,255,.22);
-    border: none; cursor: pointer;
-    width: 34px; height: 34px;
-    border-radius: 50%;
-    font-size: 16px; color: #fff;
-    display: flex; align-items: center; justify-content: center;
-    transition: background .2s;
-  }
-  .co-close:hover { background: rgba(255,255,255,.38); }
-
-  .co-plan-summary {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    background: linear-gradient(135deg, rgba(255,111,129,.08) 0%, rgba(242,169,59,.06) 100%);
-    padding: 14px 20px;
-    border-bottom: 1px solid var(--line);
-  }
-  .co-plan-badge {
-    display: inline-block;
-    background: var(--mustard);
-    color: var(--ink);
-    font-size: 11px; font-weight: 800;
-    padding: 2px 8px;
-    border-radius: 20px;
-    margin-bottom: 4px;
-  }
-  .co-plan-name { font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 1rem; color: var(--ink); }
-  .co-plan-items { font-size: 12px; color: rgba(59,42,62,.65); margin-top: 2px; }
-  .co-plan-price-box { text-align: right; flex-shrink: 0; }
-  .co-plan-price-old { font-size: 12px; color: rgba(59,42,62,.5); text-decoration: line-through; }
-  .co-plan-price { font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 1.4rem; color: var(--coral-dark); }
-
-  .co-social-strip {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 6px 12px;
-    padding: 10px 20px;
-    background: rgba(127,169,138,.08);
-    border-bottom: 1px solid var(--line);
-    font-size: 12px;
-    color: var(--ink);
-  }
-  .co-social-sep { color: var(--line); }
-  .co-social-item { display: flex; align-items: center; gap: 4px; }
-
-  .co-pay-tabs {
-    display: flex;
-    gap: 0;
-    padding: 14px 20px 0;
-  }
-  .co-pay-tab {
-    flex: 1;
-    background: var(--paper-2);
-    border: 2px solid var(--line);
-    border-radius: 10px 10px 0 0;
-    padding: 10px 8px;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 700;
-    font-size: 13.5px;
-    color: rgba(59,42,62,.6);
-    cursor: pointer;
-    transition: all .2s;
-    display: flex; align-items: center; justify-content: center; gap: 6px;
-  }
-  .co-pay-tab:first-child { border-right: none; border-radius: 10px 0 0 0; }
-  .co-pay-tab:last-child  { border-left: 1px solid var(--line); border-radius: 0 10px 0 0; }
-  .co-pay-tab.active {
-    background: #fff;
-    color: var(--coral-dark);
-    border-bottom-color: #fff;
-    border-color: var(--coral);
-    z-index: 1;
-  }
-  .co-badge-instant {
-    background: var(--sage);
-    color: #fff;
-    font-size: 10px;
-    font-weight: 800;
-    padding: 1px 6px;
-    border-radius: 20px;
-  }
-
-  .co-form-section {
-    padding: 16px 20px 0;
-    border: 2px solid var(--coral);
-    border-top: none;
-    border-radius: 0 0 10px 10px;
-    margin: 0 20px;
-    background: #fff;
-  }
-  .co-pix-info {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    background: rgba(127,169,138,.08);
-    border: 1px solid rgba(127,169,138,.3);
-    border-radius: 10px;
-    padding: 10px 12px;
-    margin-bottom: 14px;
-    font-size: 13px;
-  }
-  .co-pix-info p { color: rgba(59,42,62,.7); margin-top: 3px; font-size: 12px; }
-  .co-pix-icon { font-size: 22px; flex-shrink: 0; }
-
-  .co-field-group { margin-bottom: 12px; }
-  .co-label { display: block; font-size: 12px; font-weight: 700; color: rgba(59,42,62,.75); margin-bottom: 4px; }
-  .co-input {
-    width: 100%;
-    padding: 10px 13px;
-    border: 1.5px solid var(--line);
-    border-radius: 10px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 14px;
-    color: var(--ink);
-    background: var(--paper);
-    transition: border-color .2s, box-shadow .2s;
-    outline: none;
-  }
-  .co-input:focus {
-    border-color: var(--coral);
-    box-shadow: 0 0 0 3px rgba(255,111,129,.15);
-  }
-  .co-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .co-installments { margin-bottom: 12px; }
-
-  .co-btn-pay {
-    width: 100%;
-    padding: 14px;
-    background: linear-gradient(135deg, var(--coral) 0%, var(--coral-dark) 100%);
-    color: #fff;
-    border: none;
-    border-radius: 12px;
-    font-family: 'Baloo 2', sans-serif;
-    font-weight: 800;
-    font-size: 1.05rem;
-    letter-spacing: .3px;
-    cursor: pointer;
-    transition: transform .15s, box-shadow .15s, filter .15s;
-    margin: 14px 0;
-    display: flex; align-items: center; justify-content: center; gap: 8px;
-    box-shadow: 0 6px 20px rgba(255,111,129,.35);
-  }
-  .co-btn-pay:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(255,111,129,.45); }
-  .co-btn-pay:disabled { filter: opacity(.7); cursor: not-allowed; transform: none; }
-
-  .co-spinner {
-    width: 18px; height: 18px;
-    border: 3px solid rgba(255,255,255,.35);
-    border-top-color: #fff;
-    border-radius: 50%;
-    animation: spin .7s linear infinite;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
-
-  .co-qr-area {
-    background: rgba(127,169,138,.07);
-    border: 1.5px solid rgba(127,169,138,.3);
-    border-radius: 12px;
-    padding: 14px;
-    margin-bottom: 14px;
-    text-align: center;
-  }
-  .co-qr-title { font-weight: 700; font-size: 13.5px; color: var(--sage-dark); margin-bottom: 10px; }
-  .co-qr-box { display: flex; justify-content: center; margin-bottom: 10px; }
-  .co-qr-box img { border-radius: 10px; border: 2px solid var(--line); }
-  .co-qr-copy-row { display: flex; gap: 8px; margin-bottom: 8px; }
-  .co-qr-copy-input { flex: 1; font-size: 11px; padding: 7px 10px; }
-  .co-btn-copy {
-    padding: 7px 12px;
-    background: var(--sage);
-    color: #fff;
-    border: none; border-radius: 8px;
-    font-weight: 700; font-size: 13px;
-    cursor: pointer; white-space: nowrap;
-    transition: background .2s;
-    flex-shrink: 0;
-  }
-  .co-btn-copy:hover { background: var(--sage-dark); }
-  .co-qr-hint { font-size: 11.5px; color: rgba(59,42,62,.6); }
-
-  .co-error {
-    margin: 0 20px 10px;
-    background: rgba(226,79,99,.08);
-    border: 1.5px solid rgba(226,79,99,.3);
-    border-radius: 10px;
-    padding: 10px 14px;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--coral-dark);
-  }
-
-  .co-trust {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 6px 14px;
-    padding: 12px 20px;
-    font-size: 11.5px;
-    font-weight: 700;
-    color: rgba(59,42,62,.55);
-    border-top: 1px solid var(--line);
-    margin-top: 6px;
-  }
-
-  .co-testimonial {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 0 20px 20px;
-    background: rgba(255,111,129,.05);
-    border: 1px solid rgba(255,111,129,.18);
-    border-radius: 12px;
-    padding: 10px 14px;
-    font-size: 13px;
-    color: var(--ink);
-  }
-  .co-test-avatar {
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--coral), var(--coral-dark));
-    color: #fff;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Baloo 2', sans-serif;
-    font-weight: 800;
-    font-size: 1rem;
-    flex-shrink: 0;
-  }
-  .co-test-text strong { display: block; margin-bottom: 2px; }
-
-  /* Mobile adjustments */
-  @media(max-width:520px) {
-    .co-social-strip { font-size: 11px; }
-    .co-social-sep { display: none; }
-    .co-plan-price { font-size: 1.2rem; }
-    .co-row { grid-template-columns: 1fr; }
-  }
-
-  /* iFrame checkout */
-  .co-iframe-wrap {
-    width: 100%;
-    padding: 0 20px;
-    margin-bottom: 4px;
-  }
-  .co-iframe {
-    width: 100%;
-    height: 520px;
-    border: none;
-    border-radius: 12px;
-    display: block;
-  }
-  @media(max-width:520px) {
-    .co-iframe { height: 480px; }
-  }
+  /* === CHECKOUT MODAL === */
+  .co-overlay{display:none;position:fixed;inset:0;background:rgba(30,15,35,.72);backdrop-filter:blur(6px);z-index:9999;align-items:center;justify-content:center;padding:16px;}
+  .co-overlay.co-show{display:flex;}
+  .co-modal{background:var(--paper);border-radius:20px;width:100%;max-width:500px;max-height:92vh;overflow-y:auto;box-shadow:0 24px 64px rgba(59,42,62,.28);animation:coIn .32s cubic-bezier(.22,1,.36,1);}
+  @keyframes coIn{from{transform:translateY(40px) scale(.97);opacity:0}to{transform:none;opacity:1}}
+  .co-hdr{display:flex;align-items:center;justify-content:space-between;padding:18px 20px 14px;background:linear-gradient(135deg,var(--coral),var(--coral-dark));border-radius:20px 20px 0 0;}
+  .co-hdr-l{display:flex;flex-direction:column;gap:2px;}
+  .co-logo{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:1.1rem;color:#fff;}
+  .co-secure{font-size:12px;color:rgba(255,255,255,.88);font-weight:600;}
+  .co-x{background:rgba(255,255,255,.22);border:none;cursor:pointer;width:34px;height:34px;border-radius:50%;font-size:16px;color:#fff;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+  .co-x:hover{background:rgba(255,255,255,.38);}
+  .co-plan{display:flex;align-items:center;justify-content:space-between;gap:12px;background:linear-gradient(135deg,rgba(255,111,129,.08),rgba(242,169,59,.06));padding:14px 20px;border-bottom:1px solid var(--line);}
+  .co-badge{display:inline-block;background:var(--mustard);color:var(--ink);font-size:11px;font-weight:800;padding:2px 8px;border-radius:20px;margin-bottom:4px;}
+  .co-pname{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:1rem;color:var(--ink);}
+  .co-pitems{font-size:12px;color:rgba(59,42,62,.65);margin-top:2px;}
+  .co-pbox{text-align:right;flex-shrink:0;}
+  .co-pold{font-size:12px;color:rgba(59,42,62,.5);text-decoration:line-through;}
+  .co-pprice{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:1.4rem;color:var(--coral-dark);}
+  .co-strip{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 12px;padding:10px 20px;background:rgba(127,169,138,.08);border-bottom:1px solid var(--line);font-size:12px;color:var(--ink);}
+  .co-strip-sep{color:var(--line);}
+  .co-iframe-wrap{width:100%;padding:0 20px 4px;}
+  .co-iframe{width:100%;height:520px;border:none;border-radius:12px;display:block;}
+  .co-trust{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px 14px;padding:12px 20px;font-size:11.5px;font-weight:700;color:rgba(59,42,62,.55);border-top:1px solid var(--line);}
+  .co-testi{display:flex;align-items:center;gap:10px;margin:0 20px 20px;background:rgba(255,111,129,.05);border:1px solid rgba(255,111,129,.18);border-radius:12px;padding:10px 14px;font-size:13px;color:var(--ink);}
+  .co-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--coral),var(--coral-dark));color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Baloo 2',sans-serif;font-weight:800;font-size:1rem;flex-shrink:0;}
+  @media(max-width:520px){.co-iframe{height:480px;}.co-strip-sep{display:none;}}
 </style>
-
 </head>
 <body>
 
 <div class="topbar">
-  ðŸŽ‹ Oferta de FÃ©rias Escolares â€” termina em <span class="count" id="countdown">--:--:--</span>
+  🎋 Oferta de Férias Escolares — termina em <span class="count" id="countdown">--:--:--</span>
 </div>
 
 <div class="tab-container">
   <div class="wrap tab-wrapper">
     <a href="casinhas-de-papel-lp.html" class="tab-btn active-girls">
-      <span>ðŸ </span> Casinhas de Papel <span class="tab-badge girls">Meninas</span>
+      <span>🏠</span> Casinhas de Papel <span class="tab-badge girls">Meninas</span>
     </a>
     <a href="garagem-de-papel-lp.html" class="tab-btn">
-      <span>ðŸš—</span> Garagem de Papel <span class="tab-badge boys">Meninos</span>
+      <span>🚗</span> Garagem de Papel <span class="tab-badge boys">Meninos</span>
     </a>
   </div>
 </div>
@@ -1259,22 +984,22 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow">âœ‚ï¸ Kit digital Â· Recorte e Monte</div>
-      <h1>Nas fÃ©rias, troque o tablet por <span class="hl">tesoura e papel</span></h1>
-      <p class="sub">O Kit Casinhas de Papel transforma folhas de papel em casinhas, mÃ³veis e bonequinhas de montar â€” pra sua filha brincar, criar histÃ³rias e ficar longe da tela por horas. Sem sujeira, sem gasto, Ã© sÃ³ imprimir.</p>
-      <div class="stars">â˜…â˜…â˜…â˜…â˜… <span style="color:#5A4A5D; font-size:14px; font-weight:700;">4.9 de +1.200 mÃ£es</span></div>
+      <div class="eyebrow">✂️ Kit digital · Recorte e Monte</div>
+      <h1>Nas férias, troque o tablet por <span class="hl">tesoura e papel</span></h1>
+      <p class="sub">O Kit Casinhas de Papel transforma folhas de papel em casinhas, móveis e bonequinhas de montar — pra sua filha brincar, criar histórias e ficar longe da tela por horas. Sem sujeira, sem gasto, é só imprimir.</p>
+      <div class="stars">★★★★★ <span style="color:#5A4A5D; font-size:14px; font-weight:700;">4.9 de +1.200 mães</span></div>
       <div class="btn-wrap">
-        <a href="#oferta" class="btn">Quero o Kit agora â†’</a>
-        <div class="microcopy">Acesso imediato por e-mail Â· Menos de R$ 1 por brincadeira</div>
+        <a href="#oferta" class="btn">Quero o Kit agora →</a>
+        <div class="microcopy">Acesso imediato por e-mail · Menos de R$ 1 por brincadeira</div>
       </div>
     </div>
     <div class="hero-visual">
       <div class="frame">
-        <div class="badge-float b1">ðŸ“„ 100% pra imprimir</div>
+        <div class="badge-float b1">📄 100% pra imprimir</div>
         <video class="house-video" autoplay loop muted playsinline>
           <source src="video1.mp4" type="video/mp4">
         </video>
-        <div class="badge-float b2">ðŸ’— Tema Ã  escolha</div>
+        <div class="badge-float b2">💗 Tema à escolha</div>
       </div>
     </div>
   </div>
@@ -1285,23 +1010,23 @@
 <!-- PROBLEM -->
 <section class="problem">
   <div class="wrap">
-    <h2 class="section-title">FÃ©rias chegaram e agora?</h2>
-    <p class="section-sub">Sem a rotina da escola, o dia fica longo â€” e o celular vira a saÃ­da mais fÃ¡cil. SÃ³ que essa "soluÃ§Ã£o" vem com culpa e nenhum aprendizado.</p>
+    <h2 class="section-title">Férias chegaram e agora?</h2>
+    <p class="section-sub">Sem a rotina da escola, o dia fica longo — e o celular vira a saída mais fácil. Só que essa "solução" vem com culpa e nenhum aprendizado.</p>
     <div class="problem-grid">
       <div class="problem-card">
-        <div class="icon">ðŸ“±</div>
+        <div class="icon">📱</div>
         <h3>Tela o dia inteiro</h3>
-        <p>3, 4, 5 horas de celular por dia â€” e a sensaÃ§Ã£o de que o tempo de fÃ©rias estÃ¡ sendo desperdiÃ§ado.</p>
+        <p>3, 4, 5 horas de celular por dia — e a sensação de que o tempo de férias está sendo desperdiçado.</p>
       </div>
       <div class="problem-card">
-        <div class="icon">ðŸ˜©</div>
-        <h3>"MÃ£e, tÃ´ entediado(a)"</h3>
-        <p>Brinquedo nÃ£o motiva mais, e inventar uma atividade nova todo santo dia cansa qualquer um.</p>
+        <div class="icon">😩</div>
+        <h3>"Mãe, tô entediado(a)"</h3>
+        <p>Brinquedo não motiva mais, e inventar uma atividade nova todo santo dia cansa qualquer um.</p>
       </div>
       <div class="problem-card">
-        <div class="icon">ðŸ’¸</div>
+        <div class="icon">💸</div>
         <h3>Passeio caro toda semana</h3>
-        <p>Cinema, parquinho pago, shopping â€” a conta das fÃ©rias sobe rÃ¡pido e nem sempre cabe no orÃ§amento.</p>
+        <p>Cinema, parquinho pago, shopping — a conta das férias sobe rápido e nem sempre cabe no orçamento.</p>
       </div>
     </div>
   </div>
@@ -1312,7 +1037,7 @@
 <!-- CAROUSEL SECTION -->
 <section class="carousel-section">
   <div class="wrap">
-    <h2 class="carousel-title">VEJA O MUNDO MÃGICO QUE VOCÃŠ VAI ENTREGAR NAS MÃƒOS DELA HOJE:</h2>
+    <h2 class="carousel-title">VEJA O MUNDO MÁGICO QUE VOCÊ VAI ENTREGAR NAS MÃOS DELA HOJE:</h2>
     
     <div class="carousel-container">
       <div class="carousel-track">
@@ -1360,17 +1085,17 @@
     <div>
       <h2 style="font-size:30px; margin-bottom:18px;">Um kit, imprime em casa, brinca a tarde toda</h2>
       <ul class="checklist">
-        <li><span class="chk">âœ“</span> <span>Moldes em PDF de casinhas, mÃ³veis e bonequinhas de papel â€” sÃ³ imprimir, recortar e montar.</span></li>
-        <li><span class="chk">âœ“</span> <span>Atividade guiada: sua filha monta sozinha ou com sua ajuda, sem precisar de tutorial em vÃ­deo.</span></li>
-        <li><span class="chk">âœ“</span> <span>Desenvolve coordenaÃ§Ã£o motora fina, paciÃªncia e criatividade â€” o tipo de "tela" que os pediatras aprovam.</span></li>
-        <li><span class="chk">âœ“</span> <span>ReutilizÃ¡vel: se rasgar ou quiser fazer de novo, Ã© sÃ³ reimprimir a mesma folha.</span></li>
+        <li><span class="chk">✓</span> <span>Moldes em PDF de casinhas, móveis e bonequinhas de papel — só imprimir, recortar e montar.</span></li>
+        <li><span class="chk">✓</span> <span>Atividade guiada: sua filha monta sozinha ou com sua ajuda, sem precisar de tutorial em vídeo.</span></li>
+        <li><span class="chk">✓</span> <span>Desenvolve coordenação motora fina, paciência e criatividade — o tipo de "tela" que os pediatras aprovam.</span></li>
+        <li><span class="chk">✓</span> <span>Reutilizável: se rasgar ou quiser fazer de novo, é só reimprimir a mesma folha.</span></li>
       </ul>
       <a href="#oferta" class="btn">Ver o que vem no Kit</a>
     </div>
     <div class="mock-stack">
-      <div class="mock-card"><img class="mock-thumb" src="assets/conteudo1.jpg" alt="Casinha Doce Lar"><div><h4>Casinha Doce Lar</h4><p>6 cÃ´modos + fachada personalizÃ¡vel</p></div></div>
-      <div class="mock-card"><img class="mock-thumb" src="assets/conteudo2.jpg" alt="MÃ³veis de Papel"><div><h4>MÃ³veis de Papel</h4><p>SofÃ¡, cama, mesa e armÃ¡rio de montar</p></div></div>
-      <div class="mock-card"><img class="mock-thumb" src="assets/conteudo3.jpg" alt="FamÃ­lia de Bonequinhas"><div><h4>FamÃ­lia de Bonequinhas</h4><p>4 personagens com roupas de trocar</p></div></div>
+      <div class="mock-card"><img class="mock-thumb" src="assets/conteudo1.jpg" alt="Casinha Doce Lar"><div><h4>Casinha Doce Lar</h4><p>6 cômodos + fachada personalizável</p></div></div>
+      <div class="mock-card"><img class="mock-thumb" src="assets/conteudo2.jpg" alt="Móveis de Papel"><div><h4>Móveis de Papel</h4><p>Sofá, cama, mesa e armário de montar</p></div></div>
+      <div class="mock-card"><img class="mock-thumb" src="assets/conteudo3.jpg" alt="Família de Bonequinhas"><div><h4>Família de Bonequinhas</h4><p>4 personagens com roupas de trocar</p></div></div>
     </div>
   </div>
 </section>
@@ -1380,28 +1105,28 @@
 <!-- SOCIAL PROOF -->
 <section class="proof">
   <div class="wrap">
-    <h2 class="section-title">Quem jÃ¡ imprimiu, nÃ£o parou mais</h2>
-    <p class="section-sub">Mensagens reais de mÃ£es que testaram o kit nas primeiras semanas de fÃ©rias.</p>
+    <h2 class="section-title">Quem já imprimiu, não parou mais</h2>
+    <p class="section-sub">Mensagens reais de mães que testaram o kit nas primeiras semanas de férias.</p>
     <div class="proof-grid">
       <div class="wa-card">
-        <div class="who"><img class="wa-avatar-img" src="assets/perfil2.png" alt="Camila">Camila, mÃ£e da Bia (6)</div>
-        <div class="bubble">Gente, minha filha ficou 2 horas montando a casinha sem me chamar UMA vez ðŸ˜­</div>
-        <div class="wa-time">14:32 âœ“âœ“</div>
+        <div class="who"><img class="wa-avatar-img" src="assets/perfil2.png" alt="Camila">Camila, mãe da Bia (6)</div>
+        <div class="bubble">Gente, minha filha ficou 2 horas montando a casinha sem me chamar UMA vez 😭</div>
+        <div class="wa-time">14:32 ✓✓</div>
       </div>
       <div class="wa-card">
-        <div class="who"><img class="wa-avatar-img" src="assets/perfil1.png" alt="Renata">Renata, mÃ£e da Sofia (5)</div>
-        <div class="bubble">Achei que ia ser difÃ­cil de montar mas o passo a passo Ã© bem simples</div>
-        <div class="bubble">JÃ¡ imprimi pra reforÃ§ar porque ela rasgou de tanto brincar kkkk</div>
-        <div class="wa-time">09:14 âœ“âœ“</div>
+        <div class="who"><img class="wa-avatar-img" src="assets/perfil1.png" alt="Renata">Renata, mãe da Sofia (5)</div>
+        <div class="bubble">Achei que ia ser difícil de montar mas o passo a passo é bem simples</div>
+        <div class="bubble">Já imprimi pra reforçar porque ela rasgou de tanto brincar kkkk</div>
+        <div class="wa-time">09:14 ✓✓</div>
       </div>
       <div class="wa-card">
-        <div class="who"><img class="wa-avatar-img" src="assets/perfil3.png" alt="PatrÃ­cia">PatrÃ­cia, mÃ£e da Manu (7)</div>
-        <div class="bubble">Melhor que gastei menos de R$20 e ela brincou a semana toda de fÃ©rias</div>
-        <div class="wa-time">18:47 âœ“âœ“</div>
+        <div class="who"><img class="wa-avatar-img" src="assets/perfil3.png" alt="Patrícia">Patrícia, mãe da Manu (7)</div>
+        <div class="bubble">Melhor que gastei menos de R$20 e ela brincou a semana toda de férias</div>
+        <div class="wa-time">18:47 ✓✓</div>
       </div>
     </div>
 
-    <h3 style="text-align:center; font-size:22px; margin: 48px 0 24px; font-family:'Baloo 2', sans-serif;">TambÃ©m fazem sucesso no Direct do Instagram:</h3>
+    <h3 style="text-align:center; font-size:22px; margin: 48px 0 24px; font-family:'Baloo 2', sans-serif;">Também fazem sucesso no Direct do Instagram:</h3>
     <div class="instagram-proof-grid">
       <div class="proof-card-img">
         <img src="assets/depoimento1.png" alt="Depoimento de Marina Santana no Instagram">
@@ -1415,8 +1140,8 @@
     </div>
 
     <div class="stats-row">
-      <div class="stat"><div class="num">+1.200</div><div class="lbl">famÃ­lias atendidas</div></div>
-      <div class="stat"><div class="num">4.9â˜…</div><div class="lbl">avaliaÃ§Ã£o mÃ©dia</div></div>
+      <div class="stat"><div class="num">+1.200</div><div class="lbl">famílias atendidas</div></div>
+      <div class="stat"><div class="num">4.9★</div><div class="lbl">avaliação média</div></div>
       <div class="stat"><div class="num">7 dias</div><div class="lbl">garantia total</div></div>
     </div>
   </div>
@@ -1428,72 +1153,72 @@
 <section class="premium-bonus">
   <div class="wrap">
     <div class="bonus-tag-wrapper">
-      <span class="bonus-exclusive-tag">ðŸŽ BÃ”NUS EXCLUSIVOS</span>
+      <span class="bonus-exclusive-tag">🎁 BÔNUS EXCLUSIVOS</span>
     </div>
-    <h2 class="bonus-exclusive-title">Comprando o Premium hoje vocÃª ganha <span class="hl">5 bÃ´nus grÃ¡tis</span></h2>
+    <h2 class="bonus-exclusive-title">Comprando o Premium hoje você ganha <span class="hl">5 bônus grátis</span></h2>
     
     <div class="bonus-premium-container">
       <div class="bonus-premium-card">
         <div class="bonus-premium-img-wrapper">
-          <img src="assets/bonus1.jpg" alt="BÃ´nus 1: Boneca Sereia">
+          <img src="assets/bonus1.jpg" alt="Bônus 1: Boneca Sereia">
         </div>
         <div class="bonus-premium-info">
-          <h4>BÃ´nus 1: Boneca Sereia</h4>
+          <h4>Bônus 1: Boneca Sereia</h4>
           <div>
             <div class="old-price">De R$ 17</div>
-            <div class="free-tag">Hoje: GRÃTIS</div>
+            <div class="free-tag">Hoje: GRÁTIS</div>
           </div>
         </div>
       </div>
       
       <div class="bonus-premium-card">
         <div class="bonus-premium-img-wrapper">
-          <img src="assets/bonus2.jpg" alt="BÃ´nus 2: Boneca Professora">
+          <img src="assets/bonus2.jpg" alt="Bônus 2: Boneca Professora">
         </div>
         <div class="bonus-premium-info">
-          <h4>BÃ´nus 2: Boneca Professora</h4>
+          <h4>Bônus 2: Boneca Professora</h4>
           <div>
             <div class="old-price">De R$ 15</div>
-            <div class="free-tag">Hoje: GRÃTIS</div>
+            <div class="free-tag">Hoje: GRÁTIS</div>
           </div>
         </div>
       </div>
       
       <div class="bonus-premium-card">
         <div class="bonus-premium-img-wrapper">
-          <img src="assets/bonus3.jpg" alt="BÃ´nus 3: Kit Maquiagem + Guarda-roupa">
+          <img src="assets/bonus3.jpg" alt="Bônus 3: Kit Maquiagem + Guarda-roupa">
         </div>
         <div class="bonus-premium-info">
-          <h4>BÃ´nus 3: Kit Maquiagem + Guarda-roupa</h4>
+          <h4>Bônus 3: Kit Maquiagem + Guarda-roupa</h4>
           <div>
             <div class="old-price">De R$ 15</div>
-            <div class="free-tag">Hoje: GRÃTIS</div>
+            <div class="free-tag">Hoje: GRÁTIS</div>
           </div>
         </div>
       </div>
       
       <div class="bonus-premium-card">
         <div class="bonus-premium-img-wrapper">
-          <img src="assets/bonus4.jpg" alt="BÃ´nus 4: Kit Baby-Care">
+          <img src="assets/bonus4.jpg" alt="Bônus 4: Kit Baby-Care">
         </div>
         <div class="bonus-premium-info">
-          <h4>BÃ´nus 4: Kit Baby-Care</h4>
+          <h4>Bônus 4: Kit Baby-Care</h4>
           <div>
             <div class="old-price">De R$ 17</div>
-            <div class="free-tag">Hoje: GRÃTIS</div>
+            <div class="free-tag">Hoje: GRÁTIS</div>
           </div>
         </div>
       </div>
       
       <div class="bonus-premium-card">
         <div class="bonus-premium-img-wrapper">
-          <img src="assets/bonus5.jpg" alt="BÃ´nus 5: Kit Trailer Charme">
+          <img src="assets/bonus5.jpg" alt="Bônus 5: Kit Trailer Charme">
         </div>
         <div class="bonus-premium-info">
-          <h4>BÃ´nus 5: Kit Trailer Charme</h4>
+          <h4>Bônus 5: Kit Trailer Charme</h4>
           <div>
             <div class="old-price">De R$ 20</div>
-            <div class="free-tag">Hoje: GRÃTIS</div>
+            <div class="free-tag">Hoje: GRÁTIS</div>
           </div>
         </div>
       </div>
@@ -1501,7 +1226,7 @@
     
     <div style="text-align: center; width: 100%;">
       <div class="bonus-premium-summary">
-        Total dos bÃ´nus: <span style="text-decoration: line-through; opacity: 0.6; margin: 0 4px;">R$ 84</span> â€¢ Hoje vocÃª leva tudo isso <span class="highlight">GRÃTIS no premium</span>
+        Total dos bônus: <span style="text-decoration: line-through; opacity: 0.6; margin: 0 4px;">R$ 84</span> • Hoje você leva tudo isso <span class="highlight">GRÁTIS no premium</span>
       </div>
     </div>
   </div>
@@ -1513,54 +1238,54 @@
 <section id="oferta" class="offer">
   <div class="wrap">
     <h2 class="section-title">Escolha o seu Kit</h2>
-    <p class="section-sub">Oferta de fÃ©rias por tempo limitado â€” o preÃ§o volta ao normal quando o contador zerar.</p>
+    <p class="section-sub">Oferta de férias por tempo limitado — o preço volta ao normal quando o contador zerar.</p>
     <div class="offer-grid">
       <div class="plan">
-        <h3>Pacote BÃ¡sico</h3>
-        <div class="plan-sub">Pra comeÃ§ar a brincadeira</div>
+        <h3>Pacote Básico</h3>
+        <div class="plan-sub">Pra começar a brincadeira</div>
         <div class="price" style="margin-bottom: 4px;">R$ 14,90</div>
-        <div class="price-detail">Ã  vista</div>
+        <div class="price-detail">à vista</div>
         <ul>
           <li>3 Casinhas de Boneca Interativa</li>
           <li>PDF pronto para imprimir</li>
           <li class="crossed-out">12 Casinhas de Boneca Interativa</li>
-          <li class="crossed-out">Todos os acessÃ³rios</li>
+          <li class="crossed-out">Todos os acessórios</li>
           <li class="crossed-out">Kit Boneca Sereia</li>
           <li class="crossed-out">Kit Boneca Professora</li>
           <li class="crossed-out">Kit Maquiagem + Guarda-roupa</li>
           <li class="crossed-out">Kit Baby-Care</li>
           <li class="crossed-out">Kit Trailer Charme</li>
           <li class="crossed-out">Guia de montagem</li>
-          <li class="crossed-out">AtualizaÃ§Ãµes semanais</li>
+          <li class="crossed-out">Atualizações semanais</li>
           <li class="crossed-out">Garantia de 7 dias</li>
-          <li class="crossed-out">100% de DiversÃ£o Garantida</li>
+          <li class="crossed-out">100% de Diversão Garantida</li>
         </ul>
-        <button onclick="openCheckout('basico')" class="btn btn-outline">Quero o pacote bÃ¡sico</button>
+        <button onclick="openCheckout('basico')" class="btn btn-outline">Quero o pacote básico</button>
       </div>
       <div class="plan vip">
-        <div class="tag">âš¡ MAIS ESCOLHIDO</div>
+        <div class="tag">⚡ MAIS ESCOLHIDO</div>
         <h3>Pacote Premium</h3>
-        <div class="plan-sub">A experiÃªncia completa</div>
+        <div class="plan-sub">A experiência completa</div>
         <div class="price-old" style="margin-bottom: 2px;">De R$ 97</div>
         <div class="price" style="margin-bottom: 4px;">R$ 26,90</div>
-        <div class="price-detail">Ã  vista</div>
+        <div class="price-detail">à vista</div>
         <ul>
-          <li>Tudo do pacote BÃ¡sico</li>
+          <li>Tudo do pacote Básico</li>
           <li>12 Casinhas de Boneca Interativa</li>
-          <li>Todos os acessÃ³rios</li>
+          <li>Todos os acessórios</li>
           <li>Kit Boneca Sereia</li>
           <li>Kit Boneca Professora</li>
           <li>Kit Maquiagem + Guarda-roupa</li>
           <li>Kit Baby-Care</li>
           <li>Kit Trailer Charme</li>
           <li>Guia de montagem</li>
-          <li>AtualizaÃ§Ãµes semanais</li>
+          <li>Atualizações semanais</li>
           <li>Garantia de 7 dias</li>
-          <li>100% de DiversÃ£o Garantida</li>
+          <li>100% de Diversão Garantida</li>
         </ul>
-        <button onclick="openCheckout('vip')" class="btn btn-premium">QUERO O PACOTE PREMIUM â†’</button>
+        <button onclick="openCheckout('vip')" class="btn btn-premium">QUERO O PACOTE PREMIUM →</button>
         <div class="plan-footer-guarantee">
-          <span>ðŸ”’</span> 7 dias de garantia
+          <span>🔒</span> 7 dias de garantia
         </div>
       </div>
     </div>
@@ -1570,23 +1295,23 @@
 <!-- BONUS -->
 <section class="bonus">
   <div class="wrap">
-    <h2 class="section-title">BÃ´nus de fÃ©rias (sÃ³ nesta semana)</h2>
+    <h2 class="section-title">Bônus de férias (só nesta semana)</h2>
     <div class="bonus-grid">
       <div class="bonus-card">
-        <div class="icon">ðŸŽ¨</div>
+        <div class="icon">🎨</div>
         <h4>Pintura Livre</h4>
         <p>10 moldes extras para colorir antes de montar</p>
         <div class="val">Valor R$ 19,90</div>
       </div>
       <div class="bonus-card">
-        <div class="icon">ðŸ§©</div>
-        <h4>Quebra-cabeÃ§a de Papel</h4>
-        <p>2 quebra-cabeÃ§as temÃ¡ticos para imprimir</p>
+        <div class="icon">🧩</div>
+        <h4>Quebra-cabeça de Papel</h4>
+        <p>2 quebra-cabeças temáticos para imprimir</p>
         <div class="val">Valor R$ 14,90</div>
       </div>
       <div class="bonus-card">
-        <div class="icon">ðŸ“‹</div>
-        <h4>Guia da MÃ£e Sem Tela</h4>
+        <div class="icon">📋</div>
+        <h4>Guia da Mãe Sem Tela</h4>
         <p>7 ideias de brincadeira para os dias de chuva</p>
         <div class="val">Valor R$ 9,90</div>
       </div>
@@ -1600,8 +1325,8 @@
     <div class="guarantee">
       <img class="seal-img" src="assets/selo-garantia.png" alt="Selo de 7 dias de garantia">
       <div>
-        <h3>Risco zero pra vocÃª</h3>
-        <p>Baixe, imprima e monte com sua filha. Se em atÃ© <strong>7 dias corridos</strong> vocÃª achar que o Kit nÃ£o vale o que pagou, devolvemos 100% do valor â€” sem perguntas, sem burocracia. Ã‰ sÃ³ responder o e-mail de compra.</p>
+        <h3>Risco zero pra você</h3>
+        <p>Baixe, imprima e monte com sua filha. Se em até <strong>7 dias corridos</strong> você achar que o Kit não vale o que pagou, devolvemos 100% do valor — sem perguntas, sem burocracia. É só responder o e-mail de compra.</p>
       </div>
     </div>
   </div>
@@ -1613,19 +1338,19 @@
     <h2 class="section-title">Perguntas frequentes</h2>
     <div class="faq-item">
       <div class="faq-q">Preciso de impressora especial? <span class="plus">+</span></div>
-      <div class="faq-a"><div class="faq-a-inner">NÃ£o, qualquer impressora domÃ©stica em folha A4 comum jÃ¡ funciona. Recomendamos papel um pouco mais grosso (120g ou mais) se quiser mais durabilidade, mas papel sulfite normal tambÃ©m serve.</div></div>
+      <div class="faq-a"><div class="faq-a-inner">Não, qualquer impressora doméstica em folha A4 comum já funciona. Recomendamos papel um pouco mais grosso (120g ou mais) se quiser mais durabilidade, mas papel sulfite normal também serve.</div></div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Minha filha de 5 anos consegue montar sozinha? <span class="plus">+</span></div>
-      <div class="faq-a"><div class="faq-a-inner">A partir dos 5-6 anos, a maioria monta sozinha com o manual passo a passo. Abaixo disso, recomendamos montar junto â€” Ã© ainda mais um momento de brincar em famÃ­lia.</div></div>
+      <div class="faq-a"><div class="faq-a-inner">A partir dos 5-6 anos, a maioria monta sozinha com o manual passo a passo. Abaixo disso, recomendamos montar junto — é ainda mais um momento de brincar em família.</div></div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Como recebo o material? <span class="plus">+</span></div>
-      <div class="faq-a"><div class="faq-a-inner">Assim que a compra Ã© aprovada, vocÃª recebe um e-mail com o link de acesso aos PDFs em atÃ© 5 minutos. DÃ¡ pra baixar no celular ou computador e imprimir quando quiser.</div></div>
+      <div class="faq-a"><div class="faq-a-inner">Assim que a compra é aprovada, você recebe um e-mail com o link de acesso aos PDFs em até 5 minutos. Dá pra baixar no celular ou computador e imprimir quando quiser.</div></div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">E se eu nÃ£o gostar? <span class="plus">+</span></div>
-      <div class="faq-a"><div class="faq-a-inner">VocÃª tem 7 dias corridos de garantia incondicional. Se nÃ£o gostar por qualquer motivo, devolvemos 100% do valor pago.</div></div>
+      <div class="faq-q">E se eu não gostar? <span class="plus">+</span></div>
+      <div class="faq-a"><div class="faq-a-inner">Você tem 7 dias corridos de garantia incondicional. Se não gostar por qualquer motivo, devolvemos 100% do valor pago.</div></div>
     </div>
   </div>
 </section>
@@ -1634,223 +1359,75 @@
 <section>
   <div class="wrap">
     <div class="final-cta">
-      <h2>As fÃ©rias nÃ£o voltam. O tempo de tela, sim.</h2>
-      <p>Garanta o Kit Casinhas de Papel agora e transforme a tarde de hoje numa tarde de recorte, cola e imaginaÃ§Ã£o.</p>
-      <a href="#oferta" class="btn">Quero garantir meu Kit â†’</a>
+      <h2>As férias não voltam. O tempo de tela, sim.</h2>
+      <p>Garanta o Kit Casinhas de Papel agora e transforme a tarde de hoje numa tarde de recorte, cola e imaginação.</p>
+      <a href="#oferta" class="btn">Quero garantir meu Kit →</a>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>Kit Casinhas de Papel Ã© um produto digital. Este site nÃ£o Ã© afiliado ao Facebook ou Instagram.<br>
-  DÃºvidas: <a href="#">suporte@casinhasdepapel.com</a> Â· <a href="#">PolÃ­tica de Privacidade</a> Â· <a href="#">Termos de Compra</a></p>
+  <p>Kit Casinhas de Papel é um produto digital. Este site não é afiliado ao Facebook ou Instagram.<br>
+  Dúvidas: <a href="#">suporte@casinhasdepapel.com</a> · <a href="#">Política de Privacidade</a> · <a href="#">Termos de Compra</a></p>
 </footer>
 
 <!-- EXIT POPUP -->
 <div class="overlay" id="exitOverlay">
   <div class="popup">
-    <span class="close" id="closePopup">âœ•</span>
-    <h3>Espera! Isso some em breve ðŸ‘‡</h3>
+    <span class="close" id="closePopup">✕</span>
+    <h3>Espera! Isso some em breve 👇</h3>
     <div class="discount">-15% EXTRA</div>
-    <p>Use o cupom abaixo e leve o Kit VIP com desconto adicional sÃ³ por hoje.</p>
-    <button onclick="openCheckout('vip'); document.getElementById('exitOverlay').classList.remove('show');" class="btn" id="popupCta">Quero meu desconto</button>
+    <p>Use o cupom abaixo e leve o Kit VIP com desconto adicional só por hoje.</p>
+    <button onclick="openCheckout('vip');document.getElementById('exitOverlay').classList.remove('show');" class="btn" id="popupCta">Quero meu desconto</button>
   </div>
 </div>
 
-<!-- ===================== CHECKOUT MODAL (iframe) ===================== -->
-<div id="checkoutOverlay" class="co-overlay" role="dialog" aria-modal="true" aria-label="Finalizar Compra">
+<!-- CHECKOUT MODAL -->
+<div id="coOverlay" class="co-overlay" role="dialog" aria-modal="true">
   <div class="co-modal">
-
-    <!-- Header -->
-    <div class="co-header">
-      <div class="co-header-left">
-        <span class="co-logo">ðŸ  Casinhas de Papel</span>
-        <div class="co-secure"><span>ðŸ”’</span> Compra 100% Segura &nbsp;â€¢&nbsp; <span>âœ…</span> 7 dias de garantia</div>
+    <div class="co-hdr">
+      <div class="co-hdr-l">
+        <span class="co-logo">&#127968; Casinhas de Papel</span>
+        <div class="co-secure">&#128274; Compra 100% Segura &nbsp;&#8226;&nbsp; &#9989; 7 dias de garantia</div>
       </div>
-      <button class="co-close" id="coClose" aria-label="Fechar">âœ•</button>
+      <button class="co-x" id="coClose" aria-label="Fechar">&#x2715;</button>
     </div>
-
-    <!-- Plan Summary -->
-    <div class="co-plan-summary">
-      <div class="co-plan-info">
-        <span class="co-plan-badge" id="coPlanBadge">âš¡ MAIS ESCOLHIDO</span>
-        <div class="co-plan-name" id="coPlanName">Pacote Premium</div>
-        <div class="co-plan-items" id="coPlanItems">12 Casinhas + Todos os BÃ´nus + Garantia 7 dias</div>
+    <div class="co-plan">
+      <div>
+        <span class="co-badge" id="coBadge">&#9889; MAIS ESCOLHIDO</span>
+        <div class="co-pname" id="coPname">Pacote Premium</div>
+        <div class="co-pitems" id="coPitems">12 Casinhas + Todos os Bonus + Garantia 7 dias</div>
       </div>
-      <div class="co-plan-price-box">
-        <div class="co-plan-price-old" id="coPlanOld">De R$ 97</div>
-        <div class="co-plan-price" id="coPlanPrice">R$ 26,90</div>
+      <div class="co-pbox">
+        <div class="co-pold" id="coPold">De R$ 97</div>
+        <div class="co-pprice" id="coPprice">R$ 26,90</div>
       </div>
     </div>
-
-    <!-- Social Proof Strip -->
-    <div class="co-social-strip">
-      <div class="co-social-item">â­â­â­â­â­ <span><strong>4.9/5</strong> â€” 318 avaliaÃ§Ãµes</span></div>
-      <div class="co-social-sep">|</div>
-      <div class="co-social-item">ðŸ› <span><strong>1.247</strong> kits vendidos hoje</span></div>
-      <div class="co-social-sep">|</div>
-      <div class="co-social-item">ðŸ”’ <span>Pagamento seguro SSL</span></div>
+    <div class="co-strip">
+      <span>&#11088;&#11088;&#11088;&#11088;&#11088; <strong>4.9/5</strong> &mdash; 318 avaliações</span>
+      <span class="co-strip-sep">|</span>
+      <span>&#128717; <strong>1.247</strong> kits vendidos</span>
+      <span class="co-strip-sep">|</span>
+      <span>&#128274; SSL seguro</span>
     </div>
-
-    <!-- iFrame Checkout -->
     <div class="co-iframe-wrap">
-      <iframe
-        id="checkoutFrame"
-        src=""
-        title="Checkout seguro Casinhas de Papel"
-        frameborder="0"
-        allow="payment"
-        class="co-iframe"
-      ></iframe>
+      <iframe id="coFrame" src="" title="Checkout seguro" frameborder="0" allow="payment" class="co-iframe"></iframe>
     </div>
-
-    <!-- Trust + Testimonial -->
     <div class="co-trust">
-      <span>ðŸ”’ SSL 256-bit</span>
-      <span>ðŸ’³ Todas as bandeiras</span>
-      <span>âš¡ PIX instantÃ¢neo</span>
-      <span>âœ… 7 dias de garantia</span>
+      <span>&#128274; SSL 256-bit</span>
+      <span>&#128179; Todas as bandeiras</span>
+      <span>&#9889; PIX instantaneo</span>
+      <span>&#9989; 7 dias de garantia</span>
     </div>
-
-    <div class="co-testimonial">
-      <div class="co-test-avatar">M</div>
-      <div class="co-test-text">
-        <strong>Mariana R.</strong> â€” Comprei agora hÃ¡ pouco e jÃ¡ estou imprimindo! Super fÃ¡cil e rÃ¡pido. â­â­â­â­â­
-      </div>
+    <div class="co-testi">
+      <div class="co-avatar">M</div>
+      <div><strong>Mariana R.</strong> &mdash; Comprei agora ha pouco e ja estou imprimindo! Super facil e rapido. &#11088;&#11088;&#11088;&#11088;&#11088;</div>
     </div>
-
-  </div>
-</div>
-
-
-<script>
-      <div class="co-plan-info">
-        <span class="co-plan-badge" id="coPlanBadge">âš¡ MAIS ESCOLHIDO</span>
-        <div class="co-plan-name" id="coPlanName">Pacote Premium</div>
-        <div class="co-plan-items" id="coPlanItems">12 Casinhas + Todos os BÃ´nus + Garantia 7 dias</div>
-      </div>
-      <div class="co-plan-price-box">
-        <div class="co-plan-price-old" id="coPlanOld">De R$ 97</div>
-        <div class="co-plan-price" id="coPlanPrice">R$ 26,90</div>
-      </div>
-    </div>
-
-    <!-- Social Proof Strip -->
-    <div class="co-social-strip">
-      <div class="co-social-item">â­â­â­â­â­ <span><strong>4.9/5</strong> â€” 318 avaliaÃ§Ãµes</span></div>
-      <div class="co-social-sep">|</div>
-      <div class="co-social-item">ðŸ› <span><strong>1.247</strong> kits vendidos</span></div>
-      <div class="co-social-sep">|</div>
-      <div class="co-social-item">ðŸ”’ <span>Pagamento seguro SSL</span></div>
-    </div>
-
-    <!-- Payment Method Tabs -->
-    <div class="co-pay-tabs">
-      <button class="co-pay-tab active" id="tabPix" onclick="switchTab('pix')">ðŸ“± PIX <span class="co-badge-instant">InstantÃ¢neo</span></button>
-      <button class="co-pay-tab" id="tabCard" onclick="switchTab('card')">ðŸ’³ CartÃ£o de CrÃ©dito</button>
-    </div>
-
-    <!-- PIX Form -->
-    <div id="pixForm" class="co-form-section">
-      <div class="co-pix-info">
-        <div class="co-pix-icon">ðŸ“²</div>
-        <div>
-          <strong>Pague via PIX e acesse em segundos!</strong>
-          <p>Informe seu e-mail para receber o QR Code e o link de acesso ao Kit.</p>
-        </div>
-      </div>
-      <div class="co-field-group">
-        <label class="co-label" for="pixName">Nome completo</label>
-        <input class="co-input" type="text" id="pixName" placeholder="Seu nome" autocomplete="name">
-      </div>
-      <div class="co-field-group">
-        <label class="co-label" for="pixEmail">E-mail</label>
-        <input class="co-input" type="email" id="pixEmail" placeholder="seu@email.com" autocomplete="email">
-      </div>
-      <div class="co-field-group">
-        <label class="co-label" for="pixCpf">CPF</label>
-        <input class="co-input" type="text" id="pixCpf" placeholder="000.000.000-00" maxlength="14" autocomplete="off">
-      </div>
-      <button class="co-btn-pay" id="btnPixPay" onclick="handlePixPayment()">
-        <span id="pixBtnTxt">ðŸ”‘ Gerar QR Code PIX</span>
-        <div class="co-spinner" id="pixSpinner" style="display:none"></div>
-      </button>
-      <!-- QR Code area -->
-      <div id="pixQrArea" class="co-qr-area" style="display:none">
-        <div class="co-qr-title">âœ… PIX gerado! Escaneie o QR Code abaixo:</div>
-        <div class="co-qr-box">
-          <img id="pixQrImg" src="" alt="QR Code PIX" style="width:180px;height:180px;">
-        </div>
-        <div class="co-qr-copy-row">
-          <input class="co-input co-qr-copy-input" id="pixCopyCode" readonly value="">
-          <button class="co-btn-copy" onclick="copyPixCode()">ðŸ“‹ Copiar</button>
-        </div>
-        <p class="co-qr-hint">ApÃ³s o pagamento, vocÃª receberÃ¡ o acesso no e-mail em atÃ© 5 minutos.</p>
-      </div>
-    </div>
-
-    <!-- Card Form -->
-    <div id="cardForm" class="co-form-section" style="display:none">
-      <div class="co-field-group">
-        <label class="co-label" for="cardName">Nome no cartÃ£o</label>
-        <input class="co-input" type="text" id="cardName" placeholder="Exatamente como no cartÃ£o" autocomplete="cc-name">
-      </div>
-      <div class="co-field-group">
-        <label class="co-label" for="cardEmail">E-mail</label>
-        <input class="co-input" type="email" id="cardEmail" placeholder="seu@email.com" autocomplete="email">
-      </div>
-      <div class="co-field-group">
-        <label class="co-label" for="cardCpf">CPF do titular</label>
-        <input class="co-input" type="text" id="cardCpf" placeholder="000.000.000-00" maxlength="14" autocomplete="off">
-      </div>
-      <div class="co-field-group">
-        <label class="co-label" for="cardNumber">NÃºmero do cartÃ£o</label>
-        <input class="co-input" type="text" id="cardNumber" placeholder="0000 0000 0000 0000" maxlength="19" autocomplete="cc-number">
-      </div>
-      <div class="co-row">
-        <div class="co-field-group">
-          <label class="co-label" for="cardExpiry">Validade</label>
-          <input class="co-input" type="text" id="cardExpiry" placeholder="MM/AA" maxlength="5" autocomplete="cc-exp">
-        </div>
-        <div class="co-field-group">
-          <label class="co-label" for="cardCvv">CVV</label>
-          <input class="co-input" type="text" id="cardCvv" placeholder="000" maxlength="4" autocomplete="cc-csc">
-        </div>
-      </div>
-      <div class="co-installments" id="coInstallmentsRow" style="display:none">
-        <label class="co-label" for="cardInstallments">Parcelas</label>
-        <select class="co-input" id="cardInstallments"></select>
-      </div>
-      <button class="co-btn-pay" id="btnCardPay" onclick="handleCardPayment()">
-        <span id="cardBtnTxt">ðŸ”’ Finalizar Compra Segura</span>
-        <div class="co-spinner" id="cardSpinner" style="display:none"></div>
-      </button>
-    </div>
-
-    <!-- Error Message -->
-    <div class="co-error" id="coError" style="display:none"></div>
-
-    <!-- Trust Footer -->
-    <div class="co-trust">
-      <span>ðŸ”’ SSL 256-bit</span>
-      <span>ðŸ’³ Todas as bandeiras</span>
-      <span>âš¡ PIX instantÃ¢neo</span>
-      <span>âœ… 7 dias de garantia</span>
-    </div>
-
-    <!-- Social Proof Testimonial -->
-    <div class="co-testimonial">
-      <div class="co-test-avatar">M</div>
-      <div class="co-test-text">
-        <strong>Mariana R.</strong> â€” Comprei agora hÃ¡ pouco e jÃ¡ estou imprimindo! Super fÃ¡cil e rÃ¡pido. â­â­â­â­â­
-      </div>
-    </div>
-
   </div>
 </div>
 
 <script>
-  // Countdown â€” resets to a fresh 4h window if expired (rolling scarcity)
+  // Countdown — resets to a fresh 4h window if expired (rolling scarcity)
   function getDeadline(){
     let stored = localStorage.getItem('deadline_ts');
     let now = Date.now();
@@ -1896,9 +1473,9 @@
 
   // Sales Notifications
   const salesNames = [
-    "Tatiane O.", "Renata S.", "Camila F.", "Mariana R.", "PatrÃ­cia M.", 
+    "Tatiane O.", "Renata S.", "Camila F.", "Mariana R.", "Patrícia M.", 
     "Beatriz P.", "Juliana C.", "Fernanda G.", "Aline M.", "Vanessa R.",
-    "Sandra T.", "DÃ©bora L.", "Amanda N.", "Cristiane S.", "LetÃ­cia B."
+    "Sandra T.", "Débora L.", "Amanda N.", "Cristiane S.", "Letícia B."
   ];
 
   let isVipNext = false;
@@ -1913,11 +1490,11 @@
     }
 
     const randomName = salesNames[Math.floor(Math.random() * salesNames.length)];
-    const product = isVipNext ? "Pacote VIP" : "Pacote BÃ¡sico";
+    const product = isVipNext ? "Pacote VIP" : "Pacote Básico";
     isVipNext = !isVipNext;
 
     toast.innerHTML = `
-      <div class="sales-toast-icon">ðŸ›</div>
+      <div class="sales-toast-icon">🛍</div>
       <div class="sales-toast-content">
         <strong>${randomName}</strong> acabou de adquirir o <span class="sales-toast-product">${product}</span>
       </div>
@@ -1953,52 +1530,29 @@
     });
   }
 
-  // ===== CHECKOUT MODAL (iframe) =====
-  const PLANS = {
-    basico: {
-      name: 'Pacote Básico',
-      priceStr: 'R$ 14,90',
-      old: 'De R$ 37',
-      badge: '🎁 KIT DIGITAL',
-      items: '3 Casinhas + PDF para imprimir',
-      url: 'https://seguroamplopay.com/checkout/cmrcrjczo08l601obe91m7bku?offer=7O497W3'
-    },
-    vip: {
-      name: 'Pacote Premium',
-      priceStr: 'R$ 26,90',
-      old: 'De R$ 97',
-      badge: '⚡ MAIS ESCOLHIDO',
-      items: '12 Casinhas + Todos os Bônus + Garantia 7 dias',
-      url: 'https://seguroamplopay.com/checkout/cmrcrjczo08l601obe91m7bku?offer=4BC3JK1'
-    }
+  // === CHECKOUT ===
+  var PLANS = {
+    basico: { badge:'Kit Digital', name:'Pacote Basico', items:'3 Casinhas + PDF para imprimir', old:'De R$ 37', price:'R$ 14,90', url:'https://seguroamplopay.com/checkout/cmrcrjczo08l601obe91m7bku?offer=7O497W3' },
+    vip:    { badge:'Mais Escolhido', name:'Pacote Premium', items:'12 Casinhas + Todos os Bonus + Garantia 7 dias', old:'De R$ 97', price:'R$ 26,90', url:'https://seguroamplopay.com/checkout/cmrcrjczo08l601obe91m7bku?offer=4BC3JK1' }
   };
-
-  function openCheckout(plan) {
-    const p = PLANS[plan] || PLANS.vip;
-    document.getElementById('coPlanBadge').textContent  = p.badge;
-    document.getElementById('coPlanName').textContent   = p.name;
-    document.getElementById('coPlanItems').textContent  = p.items;
-    document.getElementById('coPlanOld').textContent    = p.old;
-    document.getElementById('coPlanPrice').textContent  = p.priceStr;
-
-    // Load iframe only when opening (lazy)
-    const frame = document.getElementById('checkoutFrame');
-    if (frame.src !== CHECKOUT_URL) frame.src = CHECKOUT_URL;
-
-    document.getElementById('checkoutOverlay').classList.add('co-show');
+  function openCheckout(plan){
+    var p = PLANS[plan] || PLANS.vip;
+    document.getElementById('coBadge').textContent  = p.badge;
+    document.getElementById('coPname').textContent  = p.name;
+    document.getElementById('coPitems').textContent = p.items;
+    document.getElementById('coPold').textContent   = p.old;
+    document.getElementById('coPprice').textContent = p.price;
+    document.getElementById('coFrame').src = p.url;
+    document.getElementById('coOverlay').classList.add('co-show');
     document.body.style.overflow = 'hidden';
   }
-
-  function closeCheckout() {
-    document.getElementById('checkoutOverlay').classList.remove('co-show');
+  function closeCheckout(){
+    document.getElementById('coOverlay').classList.remove('co-show');
+    document.getElementById('coFrame').src = '';
     document.body.style.overflow = '';
   }
-
   document.getElementById('coClose').addEventListener('click', closeCheckout);
-  document.getElementById('checkoutOverlay').addEventListener('click', function(e) {
-    if (e.target === document.getElementById('checkoutOverlay')) closeCheckout();
-  });
-
+  document.getElementById('coOverlay').addEventListener('click', function(e){ if(e.target===document.getElementById('coOverlay')) closeCheckout(); });
 </script>
 
 </body>
