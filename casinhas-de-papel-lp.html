@@ -231,7 +231,7 @@
     position:relative;
     overflow:hidden;
   }
-  .house-illustration{ width:70%; }
+  .house-video{ width: 100%; height: 100%; object-fit: cover; }
   .badge-float{
     position:absolute;
     background:var(--mustard);
@@ -243,6 +243,7 @@
     border-radius:12px;
     box-shadow:var(--shadow);
     transform:rotate(-6deg);
+    z-index: 3;
   }
   .badge-float.b1{ top:14px; left:-10px; }
   .badge-float.b2{ bottom:20px; right:-8px; transform:rotate(5deg); background:var(--sage);}
@@ -582,14 +583,9 @@
     <div class="hero-visual">
       <div class="frame">
         <div class="badge-float b1">📄 100% pra imprimir</div>
-        <svg class="house-illustration" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="100,30 170,80 30,80" fill="#FF9BA8"/>
-          <rect x="45" y="80" width="110" height="90" fill="#FFF6E5" stroke="#3B2A3E" stroke-width="2" stroke-dasharray="4 4"/>
-          <rect x="85" y="115" width="30" height="55" fill="#F2A93B"/>
-          <rect x="60" y="95" width="22" height="22" fill="#B7DDC0" stroke="#3B2A3E" stroke-width="2"/>
-          <rect x="118" y="95" width="22" height="22" fill="#B7DDC0" stroke="#3B2A3E" stroke-width="2"/>
-          <circle cx="100" cy="50" r="6" fill="#fff"/>
-        </svg>
+        <video class="house-video" autoplay loop muted playsinline>
+          <source src="video1.mp4" type="video/mp4">
+        </video>
         <div class="badge-float b2">💗 Tema à escolha</div>
       </div>
     </div>
